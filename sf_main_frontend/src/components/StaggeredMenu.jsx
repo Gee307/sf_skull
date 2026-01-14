@@ -39,18 +39,18 @@ const StaggeredMenu = ({
 
     const menuVariants = {
         closed: {
-            clipPath: "inset(50% 0 50% 0)",
+            clipPath: "circle(0px at 48px 48px)",
             opacity: 0,
             transition: {
-                duration: 0.4,
+                duration: 0.6,
                 ease: "easeInOut"
             }
         },
         open: {
-            clipPath: "inset(0% 0 0% 0)",
+            clipPath: "circle(150% at 48px 48px)",
             opacity: 1,
             transition: {
-                duration: 0.7,
+                duration: 0.9,
                 ease: [0.22, 1, 0.36, 1]
             }
         }
@@ -65,7 +65,7 @@ const StaggeredMenu = ({
         },
         open: {
             transition: {
-                delayChildren: 1.6, // Wait for the mouth to fully open
+                delayChildren: 0.4, // Wait for the mouth to start opening earlier
                 staggerChildren: 0.1,
                 staggerDirection: 1
             }
@@ -74,17 +74,23 @@ const StaggeredMenu = ({
 
     const itemVariants = {
         closed: {
-            y: 50,
             opacity: 0,
-            transition: {
-                y: { stiffness: 1000 }
-            }
+            scale: 1.2,
+            y: 0
         },
         open: {
-            y: 0,
             opacity: 1,
+            scale: 1,
+            y: [0, -5, 0], // Floating loop
             transition: {
-                y: { stiffness: 1000, velocity: -100 }
+                opacity: { duration: 0.8, ease: "easeOut" },
+                scale: { duration: 1.2, ease: "easeOut" },
+                y: {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.4 // Start floating after reveal
+                }
             }
         }
     };
@@ -110,7 +116,7 @@ const StaggeredMenu = ({
                     <div className="absolute inset-0 pointer-events-none overflow-hidden bg-black">
                         <video
                             ref={videoRef}
-                            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 transition-opacity duration-700 scale-[1.1]"
+                            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover opacity-80 transition-opacity duration-700 scale-[1.1] brightness-[0.7]"
                             muted
                             playsInline
                             src={NavVideo}
@@ -125,7 +131,7 @@ const StaggeredMenu = ({
                     </div>
 
                     {/* Menu Items Container */}
-                    <div className="relative z-10 w-full h-full flex flex-col items-center justify-start pt-[30vh] pointer-events-none">
+                    <div className="relative z-10 w-full h-full flex flex-col items-center justify-start pt-[41.5vh] pointer-events-none">
                         <motion.div
                             className="pointer-events-auto w-[90%] max-w-[600px] flex flex-col items-center justify-center px-8"
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -135,7 +141,7 @@ const StaggeredMenu = ({
                         >
                             <motion.ul
                                 variants={containerVariants}
-                                className="flex flex-col items-center justify-center gap-8 md:gap-10 list-none p-0 m-0 w-full"
+                                className="flex flex-col items-center justify-center gap-4 md:gap-6 list-none p-0 m-0 w-full"
                                 style={{ marginTop: '1.5px' }}
                             >
                                 {items.map((item, i) => (
@@ -151,16 +157,16 @@ const StaggeredMenu = ({
                                                 duration: 3,
                                                 repeat: Infinity,
                                                 ease: "easeInOut",
-                                                delay: i * 0.1 + 1.6 // Start floating after reveal
+                                                delay: i * 0.1 + 0.4 // Start floating after reveal
                                             }
                                         } : { y: 0 }}
                                     >
                                         <Link
                                             to={item.link}
-                                            className="text-base md:text-lg font-bold bg-gradient-to-r from-blue-300 via-slate-300 to-blue-300
+                                            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-300 via-white to-blue-300
                                                        bg-clip-text text-transparent no-underline flex items-center justify-center gap-3 transition-all duration-300
                                                        hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.7)]"
-                                            style={{ fontFamily: "'Libre Baskerville', serif", letterSpacing: '2.5px', textTransform: 'uppercase' }}
+                                            style={{ fontFamily: "'Cinzel Decorative', cursive", letterSpacing: '2.5px', textTransform: 'uppercase' }}
                                             onClick={() => setIsOpen(false)}
                                             aria-label={item.ariaLabel}
                                         >
@@ -173,29 +179,29 @@ const StaggeredMenu = ({
                             {/* Back to Page Button with Image Below Links */}
                             <motion.button
                                 onClick={() => setIsOpen(false)}
-                                initial={{ opacity: 0, scale: 0.8 }}
+                                initial={{ opacity: 0, scale: 1.2, y: 0 }}
                                 animate={isOpen ? {
                                     opacity: 1,
                                     scale: 1,
                                     y: [0, -8, 0] // Float animation
-                                } : { opacity: 0, scale: 0.8 }}
+                                } : { opacity: 0, scale: 1.2, y: 0 }}
                                 transition={{
-                                    opacity: { delay: 1.6 + (items.length * 0.1) + 0.3, duration: 0.5 },
-                                    scale: { delay: 1.6 + (items.length * 0.1) + 0.3, duration: 0.5 },
+                                    opacity: { delay: 0.4 + (items.length * 0.1) + 0.3, duration: 1.0 },
+                                    scale: { delay: 0.4 + (items.length * 0.1) + 0.3, duration: 1.0 },
                                     y: {
                                         duration: 3,
                                         repeat: Infinity,
                                         ease: "easeInOut",
-                                        delay: 2.1 + (items.length * 0.1) + 0.3 // Start floating after reveal
+                                        delay: 1.6 + (items.length * 0.1) + 0.3 // Start floating after reveal
                                     }
                                 }}
-                                className="mt-[-10px] p-0 border-none bg-transparent transition-transform hover:scale-110 active:scale-95"
+                                className="mt-[-16px] p-0 border-none bg-transparent transition-transform hover:scale-110 active:scale-95"
                                 aria-label="Back to Page"
                             >
                                 <img
                                     src={BackToPageImg}
                                     alt="Back to Page"
-                                    className="h-10 w-auto md:h-12 opacity-80 hover:opacity-100 transition-opacity"
+                                    className="h-8 w-auto md:h-9 opacity-80 hover:opacity-100 transition-opacity"
                                 />
                             </motion.button>
                         </motion.div>

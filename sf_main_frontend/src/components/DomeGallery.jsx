@@ -763,10 +763,16 @@ export default function DomeGallery({
       cursor: pointer;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      transition: transform 300ms;
+      transition: transform 300ms, filter 300ms;
       pointer-events: auto;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
+      filter: var(--image-filter, none) url(#electric-border);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    }
+    .item__image:hover {
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+      filter: brightness(1.2) url(#electric-border);
     }
     .item__image--reference {
       position: absolute;
@@ -778,6 +784,18 @@ export default function DomeGallery({
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: cssStyles }} />
+      <svg className="hidden absolute">
+        <defs>
+          <filter id="electric-border" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" result="noise">
+              <animate attributeName="baseFrequency" values="0.03;0.05;0.03" dur="3s" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+            <feGaussianBlur stdDeviation="0.5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+      </svg>
       <div
         ref={rootRef}
         className="sphere-root relative w-full h-full"

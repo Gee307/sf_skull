@@ -184,10 +184,10 @@ canvas {
 
 .animate-text-shimmer {
     background: linear-gradient(to right,
-            #f5e9dc 20%,
-            #fb923c 40%,
-            #fb923c 60%,
-            #f5e9dc 80%);
+            #fbbf24 20%,
+            #f97316 40%,
+            #fbbf24 60%,
+            #f97316 80%);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;

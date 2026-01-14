@@ -30,7 +30,7 @@ const Gallery = () => {
     const isTablet = winSize.width >= 640 && winSize.width < 1024;
 
     const galleryConfig = {
-        minRadius: isMobile ? 320 : isTablet ? 500 : 650,
+        minRadius: isMobile ? 380 : isTablet ? 580 : 750,
         segments: isMobile ? 32 : isTablet ? 40 : 50,
         fit: 1.0,
         autoRotateSpeed: 0.12
@@ -48,8 +48,11 @@ const Gallery = () => {
             <div className="relative z-10 h-full flex flex-col">
 
                 {/* HEADER */}
-                <div className="px-4 sm:px-6 md:px-8 pt-12 md:pt-[83px] pb-0 animate-gallery-float">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl tracking-[0.3em] text-white text-center font-light uppercase animate-spherical-shimmer">
+                <div className="px-4 sm:px-6 md:px-8 pt-20 md:pt-[110px] pb-0 animate-gallery-float">
+                    <h1
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl tracking-[0.3em] text-white text-center font-bold uppercase animate-spherical-shimmer"
+                        style={{ fontFamily: "'Cinzel Decorative', cursive" }}
+                    >
                         KINETIC MEMORIES
                     </h1>
                 </div>

@@ -147,7 +147,7 @@ export default function FAQ() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="faq-title">Frequently Asked Questions</h1>
+          <h1 className="faq-title">FAQ</h1>
         </motion.div>
 
         <div className="faq-categories">
@@ -157,6 +157,7 @@ export default function FAQ() {
               <button
                 className={`scroll-btn ${activeCategory === cat.category ? 'active' : ''}`}
                 onClick={() => setActiveCategory(activeCategory === cat.category ? null : cat.category)}
+                style={{ animationDelay: `${idx * 0.2}s` }}
               >
                 <div className="scroll-header">{cat.category}</div>
               </button>
@@ -258,6 +259,15 @@ export default function FAQ() {
           }
         }
 
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+
         .faq-subtitle {
           color: #94a3b8;
           font-size: 0.8rem;
@@ -293,6 +303,7 @@ export default function FAQ() {
           justify-content: center;
           filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
           margin-bottom: 0;
+          animation: float 4s ease-in-out infinite;
         }
 
         .scroll-btn:hover {
