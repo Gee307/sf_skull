@@ -1,0 +1,798 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap');
+
+/* --- GLOBAL LAYOUT --- */
+.acco-main-container {
+    margin: 0%;
+    padding: 0%;
+    overscroll-behavior: none;
+    font-family: 'Special Elite', serif;
+    position: relative;
+    background-image: url("../assets/accoBG.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+@media screen and (max-width:700px) {
+    .acco-main-container {
+        background: url("../assets/images/WhatsApp Image 2026-01-14 at 00.00.10.jpeg");
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.acco-main-container img {
+    position: absolute;
+    left: -25%;
+    top: -25%;
+}
+
+/* --- HEADING CONTAINER --- */
+.acco-info-box {
+    background: transparent;
+    border: 1px solid #5a0000;
+    border-radius: 15px;
+    padding: 20px;
+    width: 50%;
+    min-width: 300px;
+    margin-left: 3%;
+    margin-top: 60px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(3px);
+}
+
+/* --- MAIN HEADING --- */
+.acco-heading {
+    color: #f5f5dc;
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes spookyPulse {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 15px rgba(255, 60, 0, 0.8));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+    }
+}
+
+.acco-heading span {
+    font-family: 'Creepster', cursive;
+    background: linear-gradient(180deg, #ffffff 10%, #ffd700 40%, #8a0303 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    animation: spookyPulse 3s infinite ease-in-out;
+}
+
+
+
+/* --- TOMBSTONE CARDS --- */
+.acco-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.acco-card {
+    display: grid;
+    height: 458px;
+    width: 422px;
+    margin: 0;
+    position: relative;
+
+}
+
+.acco-card-loader {
+    scale: 0.6;
+}
+
+.acco-m-con {
+    background: url("../assets/images/graveyard.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 458px;
+    width: 422px;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    overflow-x: visible;
+    margin-inline: auto;
+    opacity: 1;
+}
+
+.acco-m-con .acco-head {
+    display: block;
+    margin-top: 35%;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 0%;
+    margin-inline: auto;
+    max-height: 95px;
+    overflow-y: auto;
+    width: 50%;
+    padding: 0;
+    color: #8a0303;
+    font-family: 'Creepster', cursive;
+    white-space: pre-line;
+}
+
+.acco-m-con .acco-p {
+    height: auto;
+    max-height: 150px;
+    width: 40%;
+    margin-inline: auto;
+    margin-block: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    white-space: pre-line;
+    ;
+}
+
+.acco-m-con:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+/* --- NAVIGATION CONTAINER --- */
+.acco-container-2 {
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 70px;
+    background-color: #000;
+    border-top: 1px solid #333;
+    flex-direction: row;
+    z-index: 2000;
+    padding: 0 10px;
+    box-shadow: none;
+}
+
+.acco-bnt-con {
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* --- NAVIGATION BUTTONS --- */
+.acco-nav-btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    outline: none;
+    color: #e0e0e0;
+    font-family: 'Jolly Lodger', cursive;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding-left: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    overflow: hidden;
+    transition: color 0.4s ease, border-color 0.4s ease, transform 0.2s ease;
+    margin: 0;
+}
+
+
+.acco-nav-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    background: linear-gradient(90deg, #8a0303, #ff4d4d);
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50px;
+    border-radius: 10px;
+}
+
+.acco-nav-btn i {
+    font-size: 1.5rem;
+    width: 25px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    display: inline;
+    font-size: 1.2rem;
+}
+
+.acco-nav-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+.acco-nav-btn:hover {
+    border-color: #ff4d4d;
+    color: #fff;
+    transform: translateX(-5px);
+    box-shadow: 0 0 15px rgba(138, 3, 3, 0.5);
+}
+
+.acco-nav-btn.acco-active {
+    color: #fff;
+    border-color: #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+
+.acco-nav-btn.acco-active::before {
+    width: 100%;
+}
+
+#btn-contingent {
+    border-color: #a855f7;
+}
+
+#btn-contingent.acco-active::before {
+    background: linear-gradient(90deg, #4c1d95, #a855f7);
+}
+
+/* --- MODAL UPDATES --- */
+.acco-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.acco-modal-content {
+    background:
+        /* Diagonal lines pattern */
+        repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.03) 0px,
+            rgba(255, 255, 255, 0.03) 2px,
+            transparent 2px,
+            transparent 4px),
+        repeating-linear-gradient(-45deg,
+            rgba(255, 255, 255, 0.03) 0px,
+            rgba(255, 255, 255, 0.03) 2px,
+            transparent 2px,
+            transparent 4px),
+        /* Base frosted glass color */
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.1) 100%);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0;
+    border-radius: 0;
+
+    width: 90%;
+    max-width: 1063px;
+    height: auto;
+    min-height: 400px;
+    max-height: 90vh;
+
+    position: relative;
+
+    /* --- SCROLLING --- */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    animation: slideUp 0.3s ease;
+    box-shadow:
+        0 0 30px rgba(0, 0, 0, 0.8),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+
+    /* --- GLASS EFFECT --- */
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+.acco-modal-content h2 {
+    font-family: 'Creepster', cursive;
+    color: #8a0303;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 0;
+    padding: 10px 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    white-space: pre-line;
+    width: 100%;
+    margin-inline: auto;
+    height: auto;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.08) 50%,
+            rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(12px);
+    z-index: 5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.acco-modal-body {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.acco-modal-body p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    width: 100%;
+    margin: 0;
+    line-height: 1.6;
+    white-space: pre-line;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 0;
+}
+
+/* Close Icon Button */
+.acco-close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.acco-close-modal-btn span {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.acco-close-modal-btn:hover {
+    color: #fff;
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* Tablet Landscape (1200px and below) */
+@media (max-width: 1200px) {
+    .acco-modal-content {
+        width: 95%;
+        height: auto;
+        max-height: 70vh;
+    }
+
+    .acco-modal-content h2 {
+        width: 100%;
+        padding: 18px 15px 12px 15px;
+    }
+
+    .acco-modal-body {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .acco-modal-body p {
+        width: 100%;
+    }
+}
+
+/* Tablet Portrait (900px and below) */
+@media (max-width: 900px) {
+    .acco-modal-overlay {
+        padding: 15px;
+    }
+
+    .acco-modal-content {
+        width: 100%;
+        height: auto;
+        max-height: 75vh;
+        min-height: 250px;
+    }
+
+    .acco-modal-content h2 {
+        width: 100%;
+        padding: 15px 12px 10px 12px;
+    }
+
+    .acco-modal-body {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .acco-modal-body p {
+        width: 100%;
+    }
+}
+
+/* Mobile Landscape (700px and below) */
+@media (max-width: 700px) {
+    .acco-modal-content {
+        height: auto;
+        max-height: 70vh;
+        min-height: 220px;
+    }
+
+    .acco-modal-content h2 {
+        width: 100%;
+        font-size: 1.5rem;
+        padding: 12px 10px 8px 10px;
+    }
+
+    .acco-modal-body {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .acco-modal-body p {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .acco-close-modal-btn {
+        top: 10px;
+        right: 10px;
+    }
+
+    .acco-close-modal-btn span {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Portrait (500px and below) */
+@media (max-width: 500px) {
+    .acco-modal-overlay {
+        padding: 10px;
+    }
+
+    .acco-modal-content {
+        width: 100%;
+        height: auto;
+        max-height: 75vh;
+        min-height: 200px;
+    }
+
+    .acco-modal-content h2 {
+        width: 100%;
+        font-size: 1.3rem;
+        padding: 10px 8px 8px 8px;
+    }
+
+    .acco-modal-body {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .acco-modal-body p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        width: 70%;
+    }
+}
+
+/* Very Small Devices (350px and below) */
+@media (max-width: 350px) {
+    .acco-modal-content h2 {
+        font-size: 1.1rem;
+    }
+
+    .acco-modal-body p {
+        font-size: 0.85rem;
+    }
+
+    .acco-close-modal-btn span {
+        font-size: 1.3rem;
+    }
+
+    .acco-modal-body p {
+        width: 100%;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* --- MAP --- */
+.map-wrapper {
+    margin: 40px 3%;
+    padding-bottom: 100px;
+}
+
+.map-title {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Creepster';
+    letter-spacing: 2px;
+}
+
+.light-map-frame {
+    border: 5px solid #8a0303;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    filter: grayscale(30%);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* --- RESPONSIVE / MOBILE NAVBAR ADJUSTMENTS --- */
+
+/* Large Tablets (1400px and below) - Switch to 2 columns */
+@media screen and (max-width: 1400px) {
+    .acco-main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .acco-main-container {
+        overflow-y: auto;
+        height: auto;
+        padding-bottom: 80px;
+    }
+
+    .acco-info-box {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 80px;
+        padding: 15px;
+    }
+
+}
+
+/* Medium screens (950px and below) - Cards stay 422px but container adjusts */
+@media screen and (max-width: 950px) {
+    .acco-cards-container {
+        justify-content: center;
+    }
+
+    .acco-heading span {
+        font-size: 2.5rem;
+    }
+}
+
+/* Small screens (500px and below) - Hide button text, show icons only */
+@media screen and (max-width: 500px) {
+    .acco-nav-btn span {
+        display: none;
+    }
+
+    .acco-nav-btn i {
+        font-size: 1.5rem;
+    }
+
+    .acco-info-box {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-top: 60px;
+    }
+
+    .acco-heading span {
+        font-size: 2rem;
+    }
+}
+
+/* Very small screens - Ensure cards are still visible with horizontal scroll if needed */
+@media screen and (max-width: 440px) {
+    .acco-cards-container {
+        overflow-x: auto;
+    }
+}
+
+/*contingent*/
+
+.contin-custom-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Jolly Lodger';
+    padding: 10px 25px;
+    font-weight: 500;
+    font-size: x-large;
+    text-align: center;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    outline: none;
+    color: black;
+    border: 1px solid white;
+}
+
+.btn-6 {
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+
+.btn-6 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-6:before,
+.btn-6:after {
+    position: absolute;
+    content: "";
+    height: 0%;
+    width: 1px;
+    box-shadow:
+        -1px -1px 20px 0px rgba(255, 255, 255, 1),
+        -4px -4px 5px 0px rgba(255, 255, 255, 1),
+        7px 7px 20px 0px rgba(0, 0, 0, .4),
+        4px 4px 5px 0px rgba(0, 0, 0, .3);
+}
+
+.btn-6:before {
+    right: 0;
+    top: 0;
+    transition: all 500ms ease;
+}
+
+.btn-6:after {
+    left: 0;
+    bottom: 0;
+    transition: all 500ms ease;
+}
+
+.btn-6:hover {
+    background: transparent;
+    color: #76aef1;
+    box-shadow: none;
+}
+
+.btn-6:hover:before {
+    transition: all 500ms ease;
+    height: 100%;
+}
+
+.btn-6:hover:after {
+    transition: all 500ms ease;
+    height: 100%;
+}
+
+.btn-6 span:before,
+.btn-6 span:after {
+    position: absolute;
+    content: "";
+    box-shadow:
+        -1px -1px 20px 0px rgba(255, 255, 255, 1),
+        -4px -4px 5px 0px rgba(255, 255, 255, 1),
+        7px 7px 20px 0px rgba(0, 0, 0, .4),
+        4px 4px 5px 0px rgba(0, 0, 0, .3);
+}
+
+.btn-6 span:before {
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: .5px;
+    transition: all 500ms ease;
+}
+
+.btn-6 span:after {
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: .5px;
+    transition: all 500ms ease;
+}
+
+.btn-6 span:hover:before {
+    width: 100%;
+    background-color: #000;
+}
+
+.btn-6 span:hover:after {
+    width: 100%;
+    background-color: #000;
+}
+
+@keyframes popupScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-anim {
+    animation: popupScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
